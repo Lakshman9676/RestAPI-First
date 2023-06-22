@@ -10,18 +10,23 @@ public class CloudVendorAPIService {
 
     CloudVendor cloudVendor;
 
+    @GetMapping
+    public String getCloudVendorSample(){
+        return ("<h1>Spring Security Test for CloudVendor Successful</h1>");
+    }
+
     @GetMapping("{vendorId}")
     public CloudVendor getCloudVendorDetails(String vendorId){
         return cloudVendor;
     }
 
-    @PostMapping
+    @PostMapping("/create")
     public String createCloudVendorDetails(@RequestBody CloudVendor cloudVendor){
         this.cloudVendor = cloudVendor;
         return "Cloud Vendor created successfully";
     }
 
-    @PutMapping
+    @PutMapping("/update")
     public String updateCloudVendorDetails(@RequestBody CloudVendor cloudVendor){
         this.cloudVendor = cloudVendor;
         return "Cloud Vendor updated successfully";
